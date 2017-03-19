@@ -1,0 +1,70 @@
+body {
+	background-color: #aeaeae;
+	overflow-x: hidden;
+}
+
+.sideframe {
+	width: 330px;
+	height: 100%;
+	display: inline;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow-y: scroll;
+}
+
+.mainframe {
+	height: 100%;
+	display: table;
+	position: absolute;
+	top:0;
+	left: 330px;
+}
+
+.new-task {
+	margin: 5px;
+}
+
+.task {
+	border: #000 solid 1px;
+	display: block;
+	width: 200px;
+	background-color: #fff;
+
+}
+
+.task.active {
+	opacity: 0.5
+}
+
+.list {
+	background-color:#eaeaea;
+	width: 300px;
+	z-index: 1;
+	min-height: 100px;
+	position: relative;
+	top: 0;
+}
+
+.list p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.day-wrapper {
+	height: 100%;
+	padding: 10px;
+	display: table-cell;
+}
+
+.day.available {
+	background-color: #99ff99;
+}
+
+.day.overbook {
+	background-color: #ff3333;
+}
+
+#newDayCapacity{
+	display: none;
+}
