@@ -3,25 +3,26 @@
 <title>Oki Toki: The time estimated todo list</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript" src="lib/domme.js"></script>
+<script type="text/javascript" src="lib/dnd.js"></script>
+<script type="text/javascript" src="lib/daylist.js"></script>
 <script type="text/javascript" src="lib/app.js"></script>
 </head>
 <body>
 
 <div class="sideframe">
-<div class="list" id="backlog">
+<div class="list">
 <p>To Do</p>
 <div class="task" draggable="true" data-hours="0.5">Get milk</div>
 
 <div class="new-task">
-<input type="text" placeholder="new task" id="newTaskTitle">
-<input type="text" placeholder="est time" id="newTaskTime">
+<input type="text" placeholder="New task" id="newTaskTitle">
+<input type="text" placeholder="Est time" id="newTaskTime">
 </div>
 </div>
 </div>
 
-<div style="overflow-x: scroll;">
 <div class="mainframe">
-<div style="display: table-row;">
+<div class="lists-wrapper">
 
 <div class="day-wrapper">
 <div class="list day" data-hours="8">
@@ -32,10 +33,9 @@
 <div id="addListColumn" class="day-wrapper">
 <div class="list inactive">
 <input type="text" placeholder="New Day" id="newDayName" />
-<input type="text" placeholder="Hours Available" id="newDayCapacity" />
+<label for="newDayCapacity">Hours Available</label>
+<input type="text" placeholder="6" id="newDayCapacity" />
 </div>
-</div>
-
 </div>
 
 </div></div>

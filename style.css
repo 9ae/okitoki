@@ -1,6 +1,7 @@
 body {
 	background-color: #aeaeae;
 	overflow-x: hidden;
+	font-family: Verdana;
 }
 
 .sideframe {
@@ -11,44 +12,92 @@ body {
 	top: 0;
 	left: 0;
 	overflow-y: scroll;
+	z-index:50;
+	background-color: #212121;
+}
+
+.sideframe .list {
+	background-color: transparent;
+}
+
+.sideframe .list p {
+	color:#fff;
 }
 
 .mainframe {
 	height: 100%;
-	display: table;
+	width: 100%;
 	position: absolute;
 	top:0;
-	left: 330px;
+	left: 0;
+	z-index: 1;
+	overflow-x: scroll;
+}
+
+.lists-wrapper {
+	display: table;
 }
 
 .new-task {
-	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 20px;
+}
+
+.new-task input[type="text"] {
+	height: 40px;
+	vertical-align: bottom;
+	background-color: #efefef;
+	border-color: #adadad;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 3px;
+	font-size: 18px;
+	text-align: center;
+}
+
+#newTaskTitle {
+	width: 200px;
+}
+
+#newTaskTime {
+	width: 80px;
 }
 
 .task {
-	border: #000 solid 1px;
 	display: block;
-	width: 200px;
-	background-color: #fff;
-
+	width: 280px;
+	background-color: #adadad;
+	text-align: left;
+	padding: 5px;
+	margin: 5px;
+	font-size: 0.7em;
 }
 
 .task.active {
 	opacity: 0.5
 }
 
+.lists-wrapper:first-child{
+	margin-left: 330px;
+}
+
 .list {
-	background-color:#eaeaea;
+	background-color:#efefef;
 	width: 300px;
 	z-index: 1;
 	min-height: 100px;
 	position: relative;
 	top: 0;
+	border-radius: 4px;
+	padding: 10px;
 }
 
 .list p {
 	margin-top: 0;
 	margin-bottom: 0;
+	text-align: center;
+	text-decoration: underline;
 }
 
 .day-wrapper {
@@ -59,12 +108,18 @@ body {
 
 .day.available {
 	background-color: #99ff99;
+	box-sizing: border-box;
 }
 
 .day.overbook {
 	background-color: #ff3333;
 }
 
-#newDayCapacity{
-	display: none;
+#newDayName {
+	width: 280px;
+	text-align: center;
+	font-size: 1.0em;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #adadad;
 }
