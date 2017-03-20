@@ -31,6 +31,7 @@ class DnD {
     var dnd = new DnD();
 
     document.addEventListener("dragstart", (event) => {
+      console.log(event);
       if ( event.target.className != "task" ){
         return;
       }
@@ -39,6 +40,7 @@ class DnD {
     }, false);
     
     document.addEventListener("dragend", (event) => {
+      console.log(event);
       if(dnd.dragged != null){
           dnd.dragged.classList.remove('active');
       }
@@ -47,6 +49,7 @@ class DnD {
     document.addEventListener("dragover", (event) => { event.preventDefault(); }, false);
     
     document.addEventListener("dragenter", (event) => {
+      console.log(event);
       if(dnd.dragged == null){
           return;
         }
@@ -58,6 +61,7 @@ class DnD {
     }, false);
     
     document.addEventListener("dragleave", (event) => {
+      console.log(event);
       if(dnd.dragged == null){
           return;
         }
@@ -68,6 +72,7 @@ class DnD {
     }, false);
     
     document.addEventListener("drop", (event) => {
+      console.log(event);
       event.preventDefault();
       if(dnd.dragged == null){
         return;
