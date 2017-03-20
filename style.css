@@ -1,5 +1,5 @@
 body {
-	background-color: #aeaeae;
+	background-color: #CFD8DC;
 	overflow-x: hidden;
 	font-family: Verdana;
 }
@@ -13,14 +13,18 @@ body {
 	left: 0;
 	overflow-y: scroll;
 	z-index:50;
-	background-color: #212121;
+	background-color: #80DEEA;
+
+	-webkit-box-shadow: 5px 0px 4px 0px rgba(50, 118, 141, 0.75);
+	-moz-box-shadow:    5px 0px 4px 0px rgba(50, 118, 141, 0.75);
+	box-shadow:         5px 0px 4px 0px rgba(50, 118, 141, 0.75);
 }
 
 .sideframe .list {
 	background-color: transparent;
 }
 
-.sideframe .list p {
+.sideframe .list h1 {
 	color:#fff;
 }
 
@@ -67,15 +71,24 @@ body {
 .task {
 	display: block;
 	width: 280px;
-	background-color: #adadad;
+	background-color: #F5F5F5;
 	text-align: left;
 	padding: 5px;
 	margin: 5px;
 	font-size: 0.7em;
+
+	-webkit-box-shadow: 2px 1px 4px 0px rgba(88, 88, 88, 0.75);
+	-moz-box-shadow:    2px 1px 4px 0px rgba(88, 88, 88, 0.75);
+	box-shadow:         2px 1px 4px 0px rgba(88, 88, 88, 0.75);
 }
 
 .task.active {
 	opacity: 0.5
+}
+
+.task .time {
+	float: right;
+	color: #797979;
 }
 
 .lists-wrapper:first-child{
@@ -93,11 +106,26 @@ body {
 	padding: 10px;
 }
 
-.list p {
+.list h1 {
+	font-size: 1.5em;
 	margin-top: 0;
 	margin-bottom: 0;
 	text-align: center;
 	text-decoration: underline;
+}
+
+.list p {
+	font-size: 0.85em;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+	font-style: italic;
+}
+
+.list.inactive {
+	border-color:#afafaf;
+	border-style: solid;
+	border-width: 1px;
 }
 
 .day-wrapper {
@@ -106,19 +134,26 @@ body {
 	display: table-cell;
 }
 
+.day {
+	border-color:#afafaf;
+	border-style: solid;
+	border-width: 1px;
+}
+
 .day.available {
-	background-color: #99ff99;
-	box-sizing: border-box;
+	border-color: #4CAF50;
+	border-width: 3px;
 }
 
 .day.overbook {
-	background-color: #ff3333;
+	border-color: #f44336;
+	border-width: 3px;
 }
 
 #newDayName {
 	width: 280px;
 	text-align: center;
-	font-size: 1.0em;
+	font-size: 1.5em;
 	background-color: transparent;
 	border: none;
 	border-bottom: 1px solid #adadad;

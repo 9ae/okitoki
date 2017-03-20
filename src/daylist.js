@@ -10,7 +10,6 @@ class DayListCreator {
     this.newListName = null;
     this.dayNameField.value = ""
     this.dayCapacityField.value = ""
-    this.dayCapacityField.style.display = "none"
   }
 
   static register(){
@@ -29,9 +28,11 @@ class DayListCreator {
         var placeholderList = document.getElementById('addListColumn');
         var wrapper = createElement('div',['day-wrapper']);
         var dayList = createElement('div',['list', 'day'], {'data-hours': capacity});
-        var dayLabel = createElement('p');
+        var dayLabel = createElement('h1');
+        var dayTime = createElement('p');
 
         dayLabel.innerHTML = creator.newListName;
+        dayTime.innerHTML = `${this.value} hours remaining`;
         dayList.appendChild(dayLabel);
         wrapper.appendChild(dayList);
 

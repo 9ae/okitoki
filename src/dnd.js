@@ -76,6 +76,7 @@ class DnD {
           dnd.dragged.parentNode.removeChild( dnd.dragged );
           event.target.appendChild( dnd.dragged );
           dnd.clearHoverClass(event.target.classList);
+          dnd.dragged.classList.remove("active");
           dnd.dragged = null;
       }
     }, false);
