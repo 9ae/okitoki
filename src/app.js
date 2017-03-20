@@ -14,6 +14,14 @@ window.onload = function(){
 	document.addEventListener('taskcreated', (event) => {
 		HeightAdjust.task(event.detail);
 	});
+
+	document.addEventListener('taskaddedto', (event) => {
+		(new DayList(event.detail)).updateHours();
+	});
+
+	document.addEventListener('taskremovedfrom', (event) => {
+		(new DayList(event.detail)).updateHours();
+	});
 };
 
 function init(){
@@ -81,6 +89,7 @@ function loadState(json){
 		day.tasks.forEach((task) =>{
 			dayList.addTask(task.title, task.time);
 		});
+		dayList.updateHours();
 	});
 }
 

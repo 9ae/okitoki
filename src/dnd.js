@@ -14,7 +14,6 @@ class DnD {
     }
     let taskTime = parseFloat(task.getAttribute("data-hours"));
     capacity -= taskTime;
-    console.log('remaining time '+capacity);
     return capacity > 0;
   }
 
@@ -78,10 +77,24 @@ class DnD {
         return;
       }
       if ( event.target.classList.contains("day") && !event.target.classList.contains("inactive")) {
+          
+          const movedFromParent = dnd.dragged.parentNode;
+          const movedFromDay = movedFromParent.classList.contains("day");
+
           dnd.dragged.parentNode.removeChild( dnd.dragged );
           event.target.appendChild( dnd.dragged );
+
           dnd.clearHoverClass(event.target.classList);
           dnd.dragged.classList.remove("active");
+
+          var event = new CustomEvent('taskaddedto', { 'detail': event.target });
+          document.dispatchEvent(event);
+
+          if(movedFromDay){
+            var event2 = new CustomEvent('taskremovedfrom', {'detail': movedFromParent});
+            document.dispatchEvent(event2);
+          }
+
           dnd.dragged = null;
       }
     }, false);

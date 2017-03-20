@@ -4,6 +4,19 @@ class DayList {
     this.element = htmlElement;
   }
 
+  updateHours(){
+    let capacity = parseFloat(this.element.getAttribute("data-hours"));
+    for(var i=0; i<this.element.children.length; i++){
+      let node = this.element.children[i];
+      if(node.className=="task"){
+        capacity -= parseFloat(node.getAttribute("data-hours"));
+      }
+    }
+    var timeText = this.element.getElementsByTagName('p')[0];
+    timeText.innerHTML = `${capacity} hours remaining`;
+    console.log(timeText.innerHTML);
+  }
+
   addTask(title, time){
     let task = createElement('div', ['task'], {
       'draggable': true,
