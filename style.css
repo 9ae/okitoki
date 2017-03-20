@@ -13,7 +13,7 @@ body {
 	left: 0;
 	overflow-y: scroll;
 	z-index:50;
-	background-color: #80DEEA;
+	background-color: #263238;
 
 	-webkit-box-shadow: 5px 0px 4px 0px rgba(50, 118, 141, 0.75);
 	-moz-box-shadow:    5px 0px 4px 0px rgba(50, 118, 141, 0.75);
@@ -51,11 +51,10 @@ body {
 .new-task input[type="text"] {
 	height: 40px;
 	vertical-align: bottom;
-	background-color: #efefef;
-	border-color: #adadad;
-	border-style: solid;
-	border-width: 1px;
-	border-radius: 3px;
+	background-color: transparent;
+	color: #4DD0E1;
+	border: none;
+	border-bottom: 1px solid #4DD0E1;
 	font-size: 18px;
 	text-align: center;
 }
@@ -71,11 +70,12 @@ body {
 .task {
 	display: block;
 	width: 280px;
-	background-color: #F5F5F5;
+	background-color: #4DD0E1;
 	text-align: left;
 	padding: 5px;
 	margin: 5px;
 	font-size: 0.7em;
+	border-radius: 2px;
 
 	-webkit-box-shadow: 2px 1px 4px 0px rgba(88, 88, 88, 0.75);
 	-moz-box-shadow:    2px 1px 4px 0px rgba(88, 88, 88, 0.75);
@@ -88,7 +88,7 @@ body {
 
 .task .time {
 	float: right;
-	color: #797979;
+	color: #00838F;
 }
 
 .lists-wrapper:first-child{
@@ -111,7 +111,7 @@ body {
 	margin-top: 0;
 	margin-bottom: 0;
 	text-align: center;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .list p {
@@ -154,6 +154,15 @@ body {
 	width: 280px;
 	text-align: center;
 	font-size: 1.5em;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #adadad;
+}
+
+#newDayCapacity {
+	width: 60px;
+	text-align: center;
+	font-size: 1.0em;
 	background-color: transparent;
 	border: none;
 	border-bottom: 1px solid #adadad;
