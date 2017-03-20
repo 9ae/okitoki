@@ -10,17 +10,15 @@ class TaskCreator {
     this.estTime.value = "";
   }
 
-  addTask(){
-    let title = this.title.value;
-    let time = this.estTime.value;
+  static create(title, time){
     let task = createElement('div', ['task'], {
       'draggable': true,
       'data-hours': time
     });
     task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
 
-    this.title.parentNode.insertAdjacentElement('beforeBegin', task);
-    this.clear();
+    let fieldsWrapper = document.getElementById('newTaskFields');
+    fieldsWrapper.insertAdjacentElement('beforeBegin', task);
     var event = new CustomEvent('taskcreated', { 'detail': task });
     document.dispatchEvent(event);
   }
@@ -31,7 +29,8 @@ class TaskCreator {
       if(creator.title.value.length == 0 || creator.estTime.value.length == 0 || isNaN(creator.estTime.value)){
         return
       }
-      creator.addTask();
+      TaskCreator.create(creator.title.value, creator.estTime.value);
+      creator.clear();
     };
 
     creator.title.addEventListener("change", onChangeListener);

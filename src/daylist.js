@@ -1,3 +1,19 @@
+class DayList {
+
+  constructor(htmlElement){
+    this.element = htmlElement;
+  }
+
+  addTask(title, time){
+    let task = createElement('div', ['task'], {
+      'draggable': true,
+      'data-hours': time
+    });
+    task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
+    this.element.appendChild(task);
+  }
+}
+
 class DayListCreator {
 
   constructor(){
@@ -12,6 +28,21 @@ class DayListCreator {
     this.dayCapacityField.value = ""
   }
 
+  static create(name, capacity){
+    var placeholderList = document.getElementById('addListColumn');
+    var wrapper = createElement('div',['day-wrapper']);
+    var dayList = createElement('div',['list', 'day'], {'data-hours': capacity});
+    dayList.innerHTML = `<h1>${name}</h1><p>${capacity} hours remaining</p>`
+    wrapper.appendChild(dayList);
+
+    placeholderList.insertAdjacentElement('beforeBegin', wrapper);
+
+    var event = new CustomEvent('daycreated', { 'detail': dayList });
+    document.dispatchEvent(event);
+
+    return dayList;
+  }
+
   static register(){
     var creator = new DayListCreator();
 
@@ -24,17 +55,7 @@ class DayListCreator {
     creator.dayCapacityField.addEventListener("change", function(event){
       if(creator.newListName != null){
         var capacity = parseFloat(this.value);
-
-        var placeholderList = document.getElementById('addListColumn');
-        var wrapper = createElement('div',['day-wrapper']);
-        var dayList = createElement('div',['list', 'day'], {'data-hours': capacity});
-        dayList.innerHTML = `<h1>${creator.newListName}</h1><p>${this.value} hours remaining</p>`
-        wrapper.appendChild(dayList);
-
-        placeholderList.insertAdjacentElement('beforeBegin', wrapper);
-
-        var event = new CustomEvent('daycreated', { 'detail': dayList });
-        document.dispatchEvent(event);
+        DayListCreator.create(creator.newListName, capacity);      
       }
       creator.clear();
     });
