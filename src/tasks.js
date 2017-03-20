@@ -21,7 +21,8 @@ class TaskCreator {
 
     this.title.parentNode.insertAdjacentElement('beforeBegin', task);
     this.clear();
-    setTaskHeight(task);
+    var event = new CustomEvent('taskcreated', { 'detail': task });
+    document.dispatchEvent(event);
   }
 
   static register(){

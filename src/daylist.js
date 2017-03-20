@@ -36,7 +36,9 @@ class DayListCreator {
         wrapper.appendChild(dayList);
 
         placeholderList.insertAdjacentElement('beforeBegin', wrapper);
-        setDayHeight(dayList);
+
+        var event = new CustomEvent('daycreated', { 'detail': dayList });
+        document.dispatchEvent(event);
       }
       creator.clear();
     });
