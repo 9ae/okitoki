@@ -28,12 +28,7 @@ class DayListCreator {
         var placeholderList = document.getElementById('addListColumn');
         var wrapper = createElement('div',['day-wrapper']);
         var dayList = createElement('div',['list', 'day'], {'data-hours': capacity});
-        var dayLabel = createElement('h1');
-        var dayTime = createElement('p');
-
-        dayLabel.innerHTML = creator.newListName;
-        dayTime.innerHTML = `${this.value} hours remaining`;
-        dayList.appendChild(dayLabel);
+        dayList.innerHTML = `<h1>${creator.newListName}</h1><p>${this.value} hours remaining</p>`
         wrapper.appendChild(dayList);
 
         placeholderList.insertAdjacentElement('beforeBegin', wrapper);

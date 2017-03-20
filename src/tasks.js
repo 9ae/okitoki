@@ -17,7 +17,7 @@ class TaskCreator {
       'draggable': true,
       'data-hours': time
     });
-    task.innerHTML = title;
+    task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
 
     this.title.parentNode.insertAdjacentElement('beforeBegin', task);
     this.clear();
