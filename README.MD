@@ -1,6 +1,6 @@
 A person project to help me organize tasks on for my 3-days sprint workflow.
 
-Not the most user friendly webapp, but it bets the job done.
+Not the most user friendly webapp, but it bets the job done. [Demo](http://www.tux.madart.tech/okitoki)
 
 Not mobile-friendly, best viewed in computer or tablet in landscape mode.
 
