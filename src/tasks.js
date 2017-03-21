@@ -15,11 +15,26 @@ class TaskCreator {
       'draggable': true,
       'data-hours': time
     });
-    task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
-    // var checkbox = createElement('input', [], {'type': 'checkbox'});
+    //task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
+    var checkbox = createElement('input', [], {'type': 'checkbox'});
+    var titleElement = createElement('span', ['title']);
+    var timeElement = createElement('span', ['time']);
+    titleElement.innerHTML = title;
+    timeElement.innerHTML = `${time} hrs`;
+
+    task.appendChild(checkbox);
+    task.appendChild(titleElement);
+    task.appendChild(timeElement);
 
     let fieldsWrapper = document.getElementById('newTaskFields');
     fieldsWrapper.insertAdjacentElement('beforeBegin', task);
+
+    checkbox.addEventListener('change', (event) => {
+      const taskElement = event.target.parentNode;
+      const listElement = taskElement.parentNode;
+      listElement.removeChild(taskElement);
+    });
+
     var event = new CustomEvent('taskcreated', { 'detail': task });
     document.dispatchEvent(event);
   }
