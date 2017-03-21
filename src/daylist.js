@@ -54,7 +54,8 @@ class DayListCreator {
     document.dispatchEvent(event);
 
     dayList.addEventListener('click', (event) => {
-      if(confirm("Remove this list?")){
+      const listName = event.target.getElementsByTagName('h1')[0].innerHTML;
+      if(confirm(`Remove list "${listName}"?`)){
         const list = event.target.parentNode.parentNode;
         const frame = list.parentNode;
         frame.removeChild(list);
