@@ -20,6 +20,24 @@ body {
 	box-shadow:         5px 0px 4px 0px rgba(50, 118, 141, 0.75);
 }
 
+.sideframe button {
+	height: 40px;
+	padding: 8px;
+	margin-top:10px;
+	background-color: #00E5FF;
+	border-radius: 8px;
+	border-width: 0;
+	text-transform: uppercase;
+}
+
+.sideframe button:hover {
+	background-color: #26C6DA;
+}
+
+.sideframe button:active {
+	background-color: #4DD0E1;
+}
+
 .sideframe .list {
 	background-color: transparent;
 }
@@ -70,7 +88,7 @@ body {
 .task {
 	display: block;
 	width: 280px;
-	background-color: #4DD0E1;
+	background-color: #80DEEA;
 	text-align: left;
 	padding: 5px;
 	margin: 5px;

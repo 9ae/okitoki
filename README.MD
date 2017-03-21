@@ -1,6 +1,8 @@
-A person project to help me organize tasks on a daily basis in my 3-days sprint workflow.
+A person project to help me organize tasks on for my 3-days sprint workflow.
 
 Not the most user friendly webapp, but it bets the job done.
+
+Not mobile-friendly, best viewed in computer or tablet in landscape mode.
 
 Min Browser Requirements
 
