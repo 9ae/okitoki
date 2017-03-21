@@ -53,6 +53,14 @@ class DayListCreator {
     var event = new CustomEvent('daycreated', { 'detail': dayList });
     document.dispatchEvent(event);
 
+    dayList.addEventListener('click', (event) => {
+      if(confirm("Remove this list?")){
+        const list = event.target.parentNode.parentNode;
+        const frame = list.parentNode;
+        frame.removeChild(list);
+      }
+    });
+
     return dayList;
   }
 

@@ -15,7 +15,6 @@ class TaskCreator {
       'draggable': true,
       'data-hours': time
     });
-    //task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
     var checkbox = createElement('input', [], {'type': 'checkbox'});
     var titleElement = createElement('span', ['title']);
     var timeElement = createElement('span', ['time']);
