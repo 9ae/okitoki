@@ -169,6 +169,17 @@ body {
 	border-width: 3px;
 }
 
+.day .delete {
+	float: right;
+	position: relative;
+	top: 0;
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 0.8em;
+    color: #f44336;
+}
+
 #newDayName {
 	width: 280px;
 	text-align: center;

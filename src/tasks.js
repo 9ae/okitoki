@@ -25,9 +25,6 @@ class TaskCreator {
     task.appendChild(titleElement);
     task.appendChild(timeElement);
 
-    let fieldsWrapper = document.getElementById('newTaskFields');
-    fieldsWrapper.insertAdjacentElement('beforeBegin', task);
-
     checkbox.addEventListener('change', (event) => {
       const taskElement = event.target.parentNode;
       const listElement = taskElement.parentNode;
@@ -36,6 +33,14 @@ class TaskCreator {
 
     var event = new CustomEvent('taskcreated', { 'detail': task });
     document.dispatchEvent(event);
+
+    return task;
+  }
+
+  static createUnalloc(title, time){
+    let task = TaskCreator.create(title, time);
+    let fieldsWrapper = document.getElementById('newTaskFields');
+    fieldsWrapper.insertAdjacentElement('beforeBegin', task);
   }
 
   static register(){
@@ -44,7 +49,7 @@ class TaskCreator {
       if(creator.title.value.length == 0 || creator.estTime.value.length == 0 || isNaN(creator.estTime.value)){
         return
       }
-      TaskCreator.create(creator.title.value, creator.estTime.value);
+      TaskCreator.createUnalloc(creator.title.value, creator.estTime.value);
       creator.clear();
     };
 

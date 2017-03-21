@@ -18,11 +18,7 @@ class DayList {
   }
 
   addTask(title, time){
-    let task = createElement('div', ['task'], {
-      'draggable': true,
-      'data-hours': time
-    });
-    task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
+    let task = TaskCreator.create(title, time);
     this.element.appendChild(task);
   }
 }
@@ -46,6 +42,9 @@ class DayListCreator {
     var wrapper = createElement('div',['day-wrapper']);
     var dayList = createElement('div',['list', 'day'], {'data-hours': capacity});
     dayList.innerHTML = `<h1>${name}</h1><p>${capacity} hours remaining</p>`
+    var deleteButton = createElement('button', ['delete'], {'type':'button'});
+    deleteButton.innerHTML = 'X';
+    dayList.insertBefore(deleteButton, dayList.firstChild);
     wrapper.appendChild(dayList);
 
     placeholderList.insertAdjacentElement('beforeBegin', wrapper);
@@ -53,10 +52,11 @@ class DayListCreator {
     var event = new CustomEvent('daycreated', { 'detail': dayList });
     document.dispatchEvent(event);
 
-    dayList.addEventListener('click', (event) => {
-      const listName = event.target.getElementsByTagName('h1')[0].innerHTML;
+    deleteButton.addEventListener('click', (event) => {
+      const day = event.target.parentNode;
+      const listName = day.getElementsByTagName('h1')[0].innerHTML;
       if(confirm(`Remove list "${listName}"?`)){
-        const list = event.target.parentNode.parentNode;
+        const list = day.parentNode;
         const frame = list.parentNode;
         frame.removeChild(list);
       }

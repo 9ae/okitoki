@@ -31,7 +31,7 @@ function init(){
 		loadState(json);
 	} else {
 		DayListCreator.create('Monday', 8);
-		TaskCreator.create('Go buy milk', 1);
+		TaskCreator.createUnalloc('Go buy milk', 1);
 	}
 	HeightAdjust.refresh();
 }
@@ -79,7 +79,7 @@ function saveState(){
 function loadState(json){
 
 	json['unsorted'].forEach((task) => {
-		TaskCreator.create(task.title, task.time);
+		TaskCreator.createUnalloc(task.title, task.time);
 	});
 
 	let days = json['days'];
