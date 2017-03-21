@@ -16,6 +16,7 @@ class TaskCreator {
       'data-hours': time
     });
     task.innerHTML = `<input type="checkbox" /> <span class="title">${title}</span><span class="time">${time} hrs</span>`;
+    // var checkbox = createElement('input', [], {'type': 'checkbox'});
 
     let fieldsWrapper = document.getElementById('newTaskFields');
     fieldsWrapper.insertAdjacentElement('beforeBegin', task);
