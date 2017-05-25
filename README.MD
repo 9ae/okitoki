@@ -1,4 +1,5 @@
-A person project to help me organize tasks on for my 3-days sprint workflow.
+A personal project to help me organize tasks on for my 3-days sprint workflow.
+This was made under the challenge of not using any frameworks at all. No jQuery or bootstrap, just pure Javascript, HTML5, and CSS
 
 Not the most user friendly webapp, but it bets the job done. [Demo](http://www.tux.madart.tech/okitoki)
 
