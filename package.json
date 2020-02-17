@@ -2,7 +2,7 @@
   "name": "okitoki",
   "version": "1.0.0",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "babel src -d docs"
   },
   "devDependencies": {
     "babel-cli": "^6.0.0",
