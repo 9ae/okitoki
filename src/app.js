@@ -12,12 +12,7 @@ window.onload = function(){
 	});
 
 	document.addEventListener('taskcreated', (event) => {
-	// 	HeightAdjust.task(event.detail);
-	});
-
-	document.addEventListener('taskDragover', (event) => {
-		const {task, capacity} = event.detail;
-		HeightAdjust.taskByDay(task, capacity);
+		HeightAdjust.task(event.detail);
 	});
 
 	document.addEventListener('taskaddedto', (event) => {

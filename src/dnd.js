@@ -58,10 +58,6 @@ class DnD {
             targetClasses.add(hoverClass);
         }
 
-        let capacity = parseFloat(event.target.getAttribute("data-hours"));
-        document.dispatchEvent(new CustomEvent('taskDragover', {detail: {
-          task: dnd.dragged, capacity
-        }}))
     }, false);
     
     document.addEventListener("dragleave", (event) => {

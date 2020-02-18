@@ -12,7 +12,7 @@ window.onload = function () {
 	});
 
 	document.addEventListener('taskcreated', event => {
-		// 	HeightAdjust.task(event.detail);
+		HeightAdjust.task(event.detail);
 	});
 
 	document.addEventListener('taskaddedto', event => {

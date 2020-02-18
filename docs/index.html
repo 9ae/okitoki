@@ -27,7 +27,7 @@
 -->
 <div class="new-task" id="newTaskFields">
 <input type="text" placeholder="New task" id="newTaskTitle">
-<input type="text" placeholder="Est time" id="newTaskTime">
+<input type="number" min="0" step="0.5" placeholder="Est time (hrs)" id="newTaskTime">
 </div>
 </div>
 
@@ -49,7 +49,7 @@
 <div class="list inactive">
 <input type="text" placeholder="New Day" id="newDayName" />
 <p><label for="newDayCapacity">Hours Available</label>
-<input type="text" placeholder="6" id="newDayCapacity" /></p>
+<input type="number" min="1" step="1" placeholder="6" id="newDayCapacity" /></p>
 </div>
 </div>
 
