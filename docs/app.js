@@ -30,7 +30,7 @@ function init() {
 		let json = JSON.parse(savedStated);
 		loadState(json);
 	} else {
-		DayListCreator.create('Monday', 8);
+		DayListCreator.create(new Date(), 8);
 		TaskCreator.createUnalloc('Go buy milk', 1);
 	}
 	HeightAdjust.refresh();

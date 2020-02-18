@@ -28,22 +28,22 @@ class DayListCreator {
   constructor() {
     this.dayNameField = document.getElementById("newDayName");
     this.dayCapacityField = document.getElementById("newDayCapacity");
-    this.newListName = null;
+    this.newListDate = null;
   }
 
   clear() {
-    this.newListName = null;
+    this.newListDate = null;
     this.dayNameField.value = "";
     this.dayCapacityField.value = "";
   }
 
-  static create(name, capacity) {
+  static create(date, capacity) {
     var placeholderList = document.getElementById('addListColumn');
     var wrapper = createElement('div', ['day-wrapper']);
     var dayList = createElement('div', ['list', 'day'], { 'data-hours': capacity });
-    dayList.innerHTML = `<h1>${name}</h1><p>${capacity} hours remaining</p>`;
+    dayList.innerHTML = `<h1>${date.toDateString()}</h1><p>${capacity} hours remaining</p>`;
     var deleteButton = createElement('button', ['delete'], { 'type': 'button' });
-    deleteButton.innerHTML = 'X';
+    deleteButton.innerHTML = '&otimes;';
     dayList.insertBefore(deleteButton, dayList.firstChild);
     wrapper.appendChild(dayList);
 
@@ -70,14 +70,14 @@ class DayListCreator {
 
     creator.dayNameField.addEventListener("blur", function (event) {
       if (this.value.length > 0) {
-        creator.newListName = this.value;
+        creator.newListDate = new Date(this.value);
       }
     });
 
     creator.dayCapacityField.addEventListener("change", function (event) {
-      if (creator.newListName != null) {
+      if (creator.newListDate != null) {
         var capacity = parseFloat(this.value);
-        DayListCreator.create(creator.newListName, capacity);
+        DayListCreator.create(creator.newListDate, capacity);
       }
       creator.clear();
     });

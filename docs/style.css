@@ -182,11 +182,12 @@ input, button {
 .day .delete {
 	float: right;
 	position: relative;
-	top: 0;
+	top: -6px;
+	right: -8px;
 	background: transparent;
 	border: none;
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 2.0em;
 	color: #ef9a9a;
 }
 
