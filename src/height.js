@@ -13,6 +13,11 @@ class HeightAdjust {
     task.style.height = unit * time;
   }
 
+  static taskByDay(task, capacity){
+    let time = parseFloat(task.getAttribute('data-hours'));
+    task.style.height = unit * (time/capacity);
+  }
+
   static refresh(){
     let days = document.getElementsByClassName('day');
     for(var i=0; i<days.length; i++){

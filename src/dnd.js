@@ -57,6 +57,11 @@ class DnD {
             let hoverClass = dnd.dayHasTime(event.target, dnd.dragged) ? "available" : "overbook";
             targetClasses.add(hoverClass);
         }
+
+        let capacity = parseFloat(event.target.getAttribute("data-hours"));
+        document.dispatchEvent(new CustomEvent('taskDragover', {detail: {
+          task: dnd.dragged, capacity
+        }}))
     }, false);
     
     document.addEventListener("dragleave", (event) => {

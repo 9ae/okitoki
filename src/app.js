@@ -16,7 +16,8 @@ window.onload = function(){
 	});
 
 	document.addEventListener('taskDragover', (event) => {
-		HeightAdjust.task(event.detail);
+		const {task, capacity} = event.detail;
+		HeightAdjust.taskByDay(task, capacity);
 	});
 
 	document.addEventListener('taskaddedto', (event) => {
