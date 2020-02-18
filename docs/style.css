@@ -1,7 +1,11 @@
 body {
 	background-color:  #7aa5b7;
 	overflow-x: hidden;
-	font-family: Verdana;
+	font-family: 'Manjari', Verdana,sans-serif;
+}
+
+input, button {
+	font-family: 'Manjari', Verdana,sans-serif;
 }
 
 .sideframe {
@@ -40,7 +44,7 @@ body {
 }
 
 .sideframe .list h1 {
-	color:#fff;
+	color:#7aa5b7;
 }
 
 .mainframe {
@@ -128,7 +132,7 @@ body {
 }
 
 .list h1 {
-
+	color: #E3F2FD;
 	font-size: 1.5em;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -141,7 +145,7 @@ body {
 	margin-top: 0;
 	margin-bottom: 0;
 	text-align: center;
-	font-style: italic;
+	color: #c1ccd4;
 }
 
 .list.inactive {
@@ -181,8 +185,8 @@ body {
 	top: 0;
 	background: transparent;
 	border: none;
-	font-weight: 700;
-	font-size: 0.8em;
+	font-weight: bold;
+	font-size: 1.2em;
 	color: #ef9a9a;
 }
 

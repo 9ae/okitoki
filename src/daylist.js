@@ -43,7 +43,7 @@ class DayListCreator {
     var dayList = createElement('div',['list', 'day'], {'data-hours': capacity});
     dayList.innerHTML = `<h1>${name}</h1><p>${capacity} hours remaining</p>`
     var deleteButton = createElement('button', ['delete'], {'type':'button'});
-    deleteButton.innerHTML = 'X';
+    deleteButton.innerHTML = '&amp;';
     dayList.insertBefore(deleteButton, dayList.firstChild);
     wrapper.appendChild(dayList);
 
