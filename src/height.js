@@ -19,10 +19,10 @@ class HeightAdjust {
         HeightAdjust.day(days[i]);
     }
 
-    let tasks = document.getElementsByClassName('task');
-    for(var j=0; j<tasks.length; j++){
-      HeightAdjust.task(tasks[j]);
-    }
+    // let tasks = document.getElementsByClassName('task');
+    // for(var j=0; j<tasks.length; j++){
+    //   HeightAdjust.task(tasks[j]);
+    // }
   }
 
 }
