@@ -29,12 +29,14 @@ class DayListCreator {
     this.dayNameField = document.getElementById("newDayName");
     this.dayCapacityField = document.getElementById("newDayCapacity");
     this.newListDate = null;
+    this.newListCap = 0;
   }
 
   clear(){
     this.newListDate = null;
     this.dayNameField.value = ""
     this.dayCapacityField.value = ""
+    this.newListCap = 0
   }
 
   static create(date, capacity){
@@ -61,7 +63,6 @@ class DayListCreator {
         frame.removeChild(list);
       }
     });
-
     return dayList;
   }
 
@@ -72,14 +73,21 @@ class DayListCreator {
       if(this.value.length > 0){
         creator.newListDate = new Date(this.value);
       }
+
+      if(creator.newListCap > 0 && creator.newListDate != null) {
+        DayListCreator.create(creator.newListDate, creator.newListCap);
+        creator.clear();
+      }
     });
 
     creator.dayCapacityField.addEventListener("change", function(event){
-      if(creator.newListDate != null){
         var capacity = parseFloat(this.value);
-        DayListCreator.create(creator.newListDate, capacity);      
+        creator.newListCap = capacity;     
+
+      if(creator.newListCap > 0 && creator.newListDate != null) {
+        DayListCreator.create(creator.newListDate, creator.newListCap);
+        creator.clear();
       }
-      creator.clear();
     });
 
     return creator;
