@@ -26,5 +26,5 @@ function setKey(elem, key){
 }
 
 function getKey(elem) {
-	return elem.setAttribute('data-key')
+	return elem.getAttribute('data-key')
 }

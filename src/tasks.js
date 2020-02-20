@@ -10,7 +10,7 @@ class TaskCreator {
     this.estTime.value = "";
   }
 
-  static create(title, time){
+  static create(title, time, key){
     let task = createElement('div', ['task'], {
       'draggable': true,
       'data-hours': time
@@ -28,17 +28,27 @@ class TaskCreator {
     checkbox.addEventListener('change', (event) => {
       const taskElement = event.target.parentNode;
       const listElement = taskElement.parentNode;
+
+      const key = getKey(taskElement);
+      Dark.doneTask(key);
+
       listElement.removeChild(taskElement);
     });
 
     var event = new CustomEvent('taskcreated', { 'detail': task });
     document.dispatchEvent(event);
 
+    if (key) {
+      setKey(task, key)
+    } else {
+      Dark.newTask(title, time, key => { setKey(task, key) });
+    }
+
     return task;
   }
 
-  static createUnalloc(title, time){
-    let task = TaskCreator.create(title, time);
+  static createUnalloc(title, time, key){
+    let task = TaskCreator.create(title, time, key);
     let fieldsWrapper = document.getElementById('newTaskFields');
     fieldsWrapper.insertAdjacentElement('beforeBegin', task);
   }

@@ -25,14 +25,12 @@ window.onload = function(){
 };
 
 function init(){
-	let savedStated = localStorage.getItem(LOCAL_STORAGE_KEY);
-	if(savedStated){
-		let json = JSON.parse(savedStated);
-		loadState(json);
-	} else {
-		DayListCreator.create(new Date(), 8);
-		TaskCreator.createUnalloc('Go buy milk', 1);
-	}
+	DayListCreator.create(new Date(), 8);
+	
+	Dark.getTasks(function(tasks){
+		tasks.map(t => TaskCreator.createUnalloc(t.title, t.est, t.key))
+	})
+	
 	HeightAdjust.refresh();
 }
 

@@ -20,3 +20,11 @@ function createElement(tag, classes = null, attributes = null) {
 	}
 	return element;
 }
+
+function setKey(elem, key) {
+	elem.setAttribute('data-key', key);
+}
+
+function getKey(elem) {
+	return elem.getAttribute('data-key');
+}

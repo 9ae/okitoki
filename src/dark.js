@@ -30,4 +30,25 @@ class Dark {
     });
   }
 
+  static newTask(title, est, callback){
+    const body = {title, est}
+  
+    Dark.post('/task', body, function(result){
+      console.log("create new task", result)
+      if (result.task_key) callback(result.task_key);
+    })
+  }
+
+  static getTasks(callback){
+    Dark.get('/tasks', function(result){
+      callback(result.tasks)
+    })
+  }
+
+  static doneTask(task_key){
+    Dark.post(`/task/${task_key}/done`,{}, function(res){
+      console.log(res);
+    })
+  }
+
 }
