@@ -30,6 +30,19 @@ class Dark {
     });
   }
 
+  static delete(path, callback) {
+    fetch(`${host}${path}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => response.json())
+    .then((json) => {
+      callback(json);
+    });
+  }
+
   /* Task API calls */
 
   static newTask(title, est, callback){
@@ -73,6 +86,10 @@ class Dark {
 
   static lists(callback){
     Dark.get('/lists', function(result){callback(result)})
+  }
+
+  static deleteList(key){
+    Dark.delete(`/list/${key}`, console.log)
   }
 
 }

@@ -68,6 +68,7 @@ class DayListCreator {
         const frame = list.parentNode;
         frame.removeChild(list);
       }
+      Dark.deleteList(getKey(day))
     });
     return dayList;
   }
