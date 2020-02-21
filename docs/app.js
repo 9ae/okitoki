@@ -25,13 +25,24 @@ window.onload = function () {
 };
 
 function init() {
-	DayListCreator.create(new Date(), 8);
 
-	Dark.getTasks(function (tasks) {
-		tasks.map(t => TaskCreator.createUnalloc(t.title, t.est, t.key));
+	Dark.lists(function (res) {
+		res.unsorted.map(t => {
+			TaskCreator.createUnalloc(t.title, t.est, t.key);
+		});
+
+		for (let [key, value] of Object.entries(res.lists)) {
+			const capacity = value.capacity;
+			const date = new Date(value.date);
+			const listElem = DayListCreator.create(date, capacity, key);
+			const dayList = new DayList(listElem);
+			value.tasks.map(t => {
+				dayList.addTask(t.title, t.est, t.key);
+			});
+		}
+
+		HeightAdjust.refresh();
 	});
-
-	HeightAdjust.refresh();
 }
 
 function objectifyTasks(tasks) {

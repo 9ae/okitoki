@@ -80,6 +80,10 @@ class DnD {
       }
       if (event.target.classList.contains("day") && !event.target.classList.contains("inactive")) {
 
+        const taskKey = getKey(dnd.dragged);
+        const listKey = getKey(event.target);
+        Dark.moveTask(taskKey, listKey);
+
         const movedFromParent = dnd.dragged.parentNode;
         const movedFromDay = movedFromParent.classList.contains("day");
 
