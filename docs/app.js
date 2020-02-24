@@ -27,18 +27,25 @@ window.onload = function () {
 function init() {
 
 	Dark.lists(function (res) {
-		res.unsorted.map(t => {
-			TaskCreator.createUnalloc(t.title, t.est, t.key);
-		});
+		//	res.unsorted.map(t => { TaskCreator.createUnalloc(t.title, t.est, t.key) });
 
-		for (let [key, value] of Object.entries(res.lists)) {
-			const capacity = value.capacity;
-			const date = new Date(value.date);
-			const listElem = DayListCreator.create(date, capacity, key);
-			const dayList = new DayList(listElem);
-			value.tasks.map(t => {
-				dayList.addTask(t.title, t.est, t.key);
-			});
+		for (let key of Object.keys(res)) {
+			const value = res[key];
+			const tasks = value.tasks;
+
+			if (key == "unsorted") {
+				tasks.map(t => {
+					TaskCreator.createUnalloc(t.title, t.est, t.key);
+				});
+			} else {
+				const capacity = value.capacity;
+				const date = new Date(key);
+				const listElem = DayListCreator.create(date, capacity, key);
+				const dayList = new DayList(listElem);
+				tasks.map(t => {
+					dayList.addTask(t.title, t.est, t.key);
+				});
+			}
 		}
 
 		HeightAdjust.refresh();
