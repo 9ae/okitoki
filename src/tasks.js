@@ -1,21 +1,21 @@
 class TaskCreator {
 
-  constructor(){
+  constructor() {
     this.title = document.getElementById('newTaskTitle');
     this.estTime = document.getElementById('newTaskTime');
   }
 
-  clear(){
+  clear() {
     this.title.value = "";
     this.estTime.value = "";
   }
 
-  static create(title, time){
+  static create(title, time) {
     let task = createElement('div', ['task'], {
       'draggable': true,
       'data-hours': time
     });
-    var checkbox = createElement('input', [], {'type': 'checkbox'});
+    var checkbox = createElement('input', [], { 'type': 'checkbox' });
     var titleElement = createElement('span', ['title']);
     var timeElement = createElement('span', ['time']);
     titleElement.innerHTML = title;
@@ -37,16 +37,16 @@ class TaskCreator {
     return task;
   }
 
-  static createUnalloc(title, time){
+  static createUnalloc(title, time) {
     let task = TaskCreator.create(title, time);
     let fieldsWrapper = document.getElementById('newTaskFields');
     fieldsWrapper.insertAdjacentElement('beforeBegin', task);
   }
 
-  static register(){
+  static register() {
     var creator = new TaskCreator();
     let onChangeListener = (event) => {
-      if(creator.title.value.length == 0 || creator.estTime.value.length == 0 || isNaN(creator.estTime.value)){
+      if (creator.title.value.length == 0 || creator.estTime.value.length == 0 || isNaN(creator.estTime.value)) {
         return
       }
       TaskCreator.createUnalloc(creator.title.value, creator.estTime.value);

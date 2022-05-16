@@ -1,6 +1,7 @@
 const LOCAL_STORAGE_KEY = 'okitokitasks';
 
 window.onload = function () {
+
 	init();
 
 	DnD.register();

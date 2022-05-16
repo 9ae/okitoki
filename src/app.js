@@ -1,6 +1,7 @@
 const LOCAL_STORAGE_KEY = 'okitokitasks';
 
-window.onload = function(){
+window.onload = function () {
+
 	init();
 
 	DnD.register();
@@ -24,9 +25,9 @@ window.onload = function(){
 	});
 };
 
-function init(){
+function init() {
 	let savedStated = localStorage.getItem(LOCAL_STORAGE_KEY);
-	if(savedStated){
+	if (savedStated) {
 		let json = JSON.parse(savedStated);
 		loadState(json);
 	} else {
@@ -36,11 +37,11 @@ function init(){
 	HeightAdjust.refresh();
 }
 
-function objectifyTasks(tasks){
+function objectifyTasks(tasks) {
 	let todo = [];
-	for(var i=0; i<tasks.length; i++){
+	for (var i = 0; i < tasks.length; i++) {
 		let e = tasks[i];
-		todo.push( {
+		todo.push({
 			'time': parseFloat(e.getAttribute('data-hours')),
 			'title': e.getElementsByClassName('title')[0].innerHTML
 		});
@@ -48,14 +49,14 @@ function objectifyTasks(tasks){
 	return todo;
 }
 
-function saveState(){
+function saveState() {
 	let backlog = document.getElementById('backlog');
 	let tasks = backlog.getElementsByClassName('task');
 	let todo = objectifyTasks(tasks);
-	
+
 	let lists = [];
 	let days = document.getElementsByClassName('day');
-	for(var j=0; j<days.length; j++){
+	for (var j = 0; j < days.length; j++) {
 		let daylist = days[j];
 		let capacity = parseFloat(daylist.getAttribute('data-hours'));
 		let name = daylist.getElementsByTagName('h1')[0].innerHTML;
@@ -76,7 +77,7 @@ function saveState(){
 	localStorage.setItem(LOCAL_STORAGE_KEY, result);
 }
 
-function loadState(json){
+function loadState(json) {
 
 	json['unsorted'].forEach((task) => {
 		TaskCreator.createUnalloc(task.title, task.time);
@@ -86,14 +87,14 @@ function loadState(json){
 	days.forEach((day) => {
 		let e = DayListCreator.create(day.name, day.capacity);
 		let dayList = new DayList(e);
-		day.tasks.forEach((task) =>{
+		day.tasks.forEach((task) => {
 			dayList.addTask(task.title, task.time);
 		});
 		dayList.updateHours();
 	});
 }
 
-function clearState(){
+function clearState() {
 	localStorage.clear();
-	window.location.reload();	
+	window.location.reload();
 }

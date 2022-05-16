@@ -1,5 +1,6 @@
 const leeway = 50;
-const unit = (window.outerHeight - leeway) / 12; //TODO: divide by the longest day
+const unit = 50;
+//(window.outerHeight - leeway) / 12; //TODO: divide by the longest day
 
 class HeightAdjust {
 
